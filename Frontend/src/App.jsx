@@ -10,6 +10,7 @@ import Doctor from './pages/Doctor.jsx';
 import Login from './pages/Login.jsx';
 import Appointments from './pages/Appointment.jsx';
 import Navbar from './Component/Navbar.jsx';
+import Footer from './Component/Footer.jsx';
 const App = () => {
   return (
     <div className='mx-4 sm:mx-[10%]'>
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/doctors/:speciality' element={<Doctor />} />
         <Route path='/login' element={<Login />} />
       </Routes>
+       <Footer/>
     </div>
   )
 }
