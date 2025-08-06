@@ -32,15 +32,16 @@ const Doctor = () => {
     }, [doctors,speciality])
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div 
+    onClick={()=> scrollTo(0,0)}
+    className="p-6 max-w-7xl mx-auto">
       <p className='text-gray-600 mb-6'>Browse through the doctors specialist.</p>
       
       <div className='flex flex-col lg:flex-row gap-8'>
         {/* Sidebar */}
         <div className="lg:w-64 flex-shrink-0">
           <div className="space-y-2">
-            {specialties.map((sp
-            ec, index) => (
+            {specialties.map((spec, index) => (
               <button
                 key={index}
                 onClick={() => {

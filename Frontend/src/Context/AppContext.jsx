@@ -5,9 +5,11 @@ import React from "react";
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
+    const currencySymbol = 'Rs';
 const value = {
     specialityData,
-    doctors
+    doctors,
+    currencySymbol
 }
 return (
     <AppContext.Provider value={value}>
