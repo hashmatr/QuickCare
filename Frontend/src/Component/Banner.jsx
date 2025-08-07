@@ -5,28 +5,27 @@ import { useNavigate } from 'react-router-dom';
 const Banner = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex h-[350px] flex-col-reverse md:flex-row items-center justify-between bg-[#4C5DF1] rounded-lg px-6 sm:px-10 md:px-14 py-10 my-20 md:mx-10 text-white">
+    <div className="flex bg-[#4C5DF1] min-h-[300px] md:h-[350px] flex-col-reverse md:flex-row items-center justify-between bg-primary rounded-lg px-4 sm:px-6 md:px-10 lg:px-14 py-6 md:py-10 my-8 md:my-20 mx-4 md:mx-10 text-primary-foreground">
       
       {/* Left Side */}
-      <div className="md:w-1/2 space-y-6 text-center md:text-left">
-        <div>
-          <p className="text-2xl sm:text-3xl md:text-4xl font-semibold">Book Appointment</p>
-          <p className="text-2xl sm:text-3xl md:text-4xl font-semibold mt-2">With 100+ Trusted Doctors</p>
+      <div className="w-full md:w-1/2 space-y-4 md:space-y-6 text-center md:text-left">
+        <div className="space-y-1 md:space-y-2">
+          <p className="text-xl sm:text-2xl  text-white md:text-3xl lg:text-4xl font-semibold leading-tight">Book Appointment</p>
+          <p className="text-xl sm:text-2xl text-white md:text-3xl lg:text-4xl font-semibold leading-tight">With 100+ Trusted Doctors</p>
         </div>
         <button 
              onClick={() => {
             navigate("/login");
             scrollTo(0, 0);
           }}
-        className="bg-white text-gray-800 font-semibold px-6 py-3 rounded-full shadow hover:opacity-90 transition duration-300">
-
+        className="bg-white cursor-pointer  text-foreground font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-black hover:text-white active:scale-95 transition-all duration-300 touch-manipulation">
           Create Account
         </button>
       </div>
 
       {/* Right Side */}
-      <div className="md:w-1/2 flex justify-center mb-10 md:mb-0">
-        <img src={Appointment} alt="Appointment_Image" className="h-[380px] mb-6 max-w-xs sm:max-w-sm md:max-w-md w-full object-contain " />
+      <div className="w-full md:w-1/2 flex justify-center mb-6 md:mb-0">
+        <img src={Appointment} alt="Appointment_Image" className="h-48 sm:h-56 md:h-64 lg:h-80 max-w-full object-contain" />
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ const Doctor = () => {
   const {doctors} = useContext(AppContext);
   const navigate = useNavigate();
   const [filterDoc, setFilterDoc] = useState([]);
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
   
   const specialties = [
     'General physician',
@@ -31,23 +32,37 @@ const Doctor = () => {
     applyFilter();
     }, [doctors,speciality])
 
+  const handleSpecialtyClick = (spec) => {
+    const encodedSpec = encodeURIComponent(spec);
+    navigate(`/doctors/${encodedSpec}`);
+    setShowMobileFilter(false); // Close mobile filter after selection
+  }
+
   return (
     <div 
     onClick={()=> scrollTo(0,0)}
     className="p-6 max-w-7xl mx-auto">
-      <p className='text-gray-600 mb-6'>Browse through the doctors specialist.</p>
+      <div className="flex items-center justify-between mb-6">
+        <p className='text-gray-600'>Browse through the doctors specialist.</p>
+        
+        {/* Mobile Filter Button */}
+        <button
+          onClick={() => setShowMobileFilter(!showMobileFilter)}
+          className="lg:hidden flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          {showMobileFilter ? '✕' : '☰'}
+          {showMobileFilter ? 'Close' : 'Filter'}
+        </button>
+      </div>
       
       <div className='flex flex-col lg:flex-row gap-8'>
-        {/* Sidebar */}
-        <div className="lg:w-64 flex-shrink-0">
+        {/* Sidebar - Hidden on mobile unless showMobileFilter is true */}
+        <div className={`lg:w-64 flex-shrink-0 ${showMobileFilter ? 'block' : 'hidden lg:block'}`}>
           <div className="space-y-2">
             {specialties.map((spec, index) => (
               <button
                 key={index}
-                onClick={() => {
-                  const encodedSpec = encodeURIComponent(spec);
-                  navigate(`/doctors/${encodedSpec}`);
-                }}
+                onClick={() => handleSpecialtyClick(spec)}
                 className={`w-full text-left px-4 py-3 rounded-lg border transition-all duration-200 hover:bg-blue-50 hover:border-blue-500 ${
                   speciality === spec 
                     ? 'bg-blue-50 border-blue-500 text-blue-600 font-medium' 
@@ -60,8 +75,8 @@ const Doctor = () => {
           </div>
         </div>
 
-        {/* Doctor Grid */}
-        <div className="flex-1">
+        {/* Doctor Grid - Hidden on mobile when filter is open */}
+        <div className={`flex-1 ${showMobileFilter ? 'hidden lg:block' : 'block'}`}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filterDoc.map((doctor, index) => (
               <div
