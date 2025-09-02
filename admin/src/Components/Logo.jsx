@@ -3,7 +3,7 @@
   const Logo = () => {
     const navigate = useNavigate(); 
     return(
-          <div onClick={() => navigate("/")} className="cursor-pointer flex items-center gap-3">
+        <div className="cursor-pointer flex items-center gap-3">
             <div className="bg-indigo-500 p-2 rounded-xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

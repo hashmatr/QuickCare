@@ -1,5 +1,5 @@
 import React from "react";
-
+import Logo from "./Logo.jsx";
 const Footer = () => {
   return (
     <footer className="bg-white text-gray-600 px-6 md:px-20 py-12 border-t border-gray-200">
@@ -8,25 +8,7 @@ const Footer = () => {
         {/* Left - Logo and Description */}
         <div>
           <div className="flex items-center space-x-2 mb-4">
-        <div className="flex items-center gap-3">
-          <div className="bg-indigo-500 p-2 rounded-xl">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="white"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="white"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 2L2 7v6c0 5.5 4.5 10 10 10s10-4.5 10-10V7l-10-5z"
-              />
-            </svg>
-          </div>
-          <h1 className="text-xl font-bold text-[#000B6D]">QuickCare</h1>
-        </div>
+            <Logo />
           </div>
           <p className="text-sm leading-relaxed text-gray-500">
            Book appointments with trusted doctors in minutes. QuickCare brings

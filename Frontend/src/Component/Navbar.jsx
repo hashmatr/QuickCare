@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Profile_pic from "../assets/assets_frontend/profile_pic.png";
 import Dropdown from "../assets/assets_frontend/dropdown_icon.svg";
-
+import Logo from './Logo.jsx'
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -24,26 +24,7 @@ const Navbar = () => {
     <nav className="w-full bg-white shadow-sm py-2 relative">
       <div className="flex items-center justify-between px-2">
         {/* Logo */}
-        <div onClick={() => navigate("/")} className="cursor-pointer flex items-center gap-3">
-          <div className="bg-indigo-500 p-2 rounded-xl">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="white"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="white"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 2L2 7v6c0 5.5 4.5 10 10 10s10-4.5 10-10V7l-10-5z"
-              />
-            </svg>
-          </div>
-          <h1 className="text-xl font-bold text-[#000B6D]">QuickCare</h1>
-        </div>
-
+        <Logo />
         {/* Desktop Nav Links */}
         <ul className="hidden md:flex items-center gap-12 text-sm font-semibold text-gray-900">
           {navItems.map((item) => {
